@@ -7,6 +7,11 @@
         <attribute name="story_title" attributeType="String" defaultValueString=""/>
         <attribute name="story_url" attributeType="String" defaultValueString=""/>
         <attribute name="title" attributeType="String" defaultValueString=""/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="story_id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
         <element name="News" positionX="-45" positionY="-45" width="128" height="133"/>

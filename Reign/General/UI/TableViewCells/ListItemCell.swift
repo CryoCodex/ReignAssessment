@@ -14,10 +14,14 @@ class ListItemCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
+        setupUI()
     }
     
-    func setupUI() {
+    var model: ListViewModel?
+    
+    private func setupUI() {
         newsTitleLabel.font = UIFont.systemFont(ofSize: 18)
         newsMetadataLabel.font = UIFont.systemFont(ofSize: 10)
         
@@ -25,8 +29,10 @@ class ListItemCell: UITableViewCell {
         newsMetadataLabel.textColor = UIColor.lightGray
     }
     
-    func setupCell(with model: ListViewModel) {
+    func setupCell(with model: ListViewModel?) {
+        guard let model = model else { return }
         newsTitleLabel.text = model.title
         newsMetadataLabel.text = model.metadata
+        self.model = model
     }
 }

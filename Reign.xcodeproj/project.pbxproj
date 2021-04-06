@@ -10,6 +10,9 @@
 		26F5F852F312BBA6AB2F7049 /* Pods_ReignUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 744227A7C56391881F95FD4C /* Pods_ReignUnitTests.framework */; };
 		4B29BC7FD87DE597D351BF8D /* Pods_Reign.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0D8F41A41562607A9A49DB9 /* Pods_Reign.framework */; };
 		7010E602261CCCE000E86E02 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7010E601261CCCE000E86E02 /* NetworkLayer.swift */; };
+		7025A164261CDF3800495589 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025A163261CDF3800495589 /* Constants.swift */; };
+		7025A168261CE10B00495589 /* Localizables.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7025A167261CE10B00495589 /* Localizables.strings */; };
+		7025A170261CF3A800495589 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025A16F261CF3A800495589 /* Protocols.swift */; };
 		704CACAD261CAA7000C55628 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704CACAC261CAA7000C55628 /* Extensions.swift */; };
 		705018E8261C892300CA8937 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705018E7261C892300CA8937 /* AppDelegate.swift */; };
 		705018F4261C892600CA8937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 705018F3261C892600CA8937 /* Assets.xcassets */; };
@@ -23,7 +26,7 @@
 		70501936261C9A5D00CA8937 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70501935261C9A5D00CA8937 /* ListInteractor.swift */; };
 		7050193C261C9A8600CA8937 /* ViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7050193B261C9A8600CA8937 /* ViewFactory.swift */; };
 		70501947261C9D1800CA8937 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70501946261C9D1800CA8937 /* API.swift */; };
-		7050195B261CA70400CA8937 /* News.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7050191A261C98C000CA8937 /* News.xcdatamodeld */; };
+		7050195B261CA70400CA8937 /* Reign.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7050191A261C98C000CA8937 /* Reign.xcdatamodeld */; };
 		7062304C261CBB7600D51017 /* ListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7062304A261CBB7600D51017 /* ListItemCell.swift */; };
 		7062304D261CBB7600D51017 /* ListItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7062304B261CBB7600D51017 /* ListItemCell.xib */; };
 		70623052261CC4E900D51017 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70623051261CC4E900D51017 /* ListViewModel.swift */; };
@@ -50,6 +53,9 @@
 		7010E608261CCD8500E86E02 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		7010E609261CCD9400E86E02 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		7010E60A261CCDA200E86E02 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		7025A163261CDF3800495589 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7025A167261CE10B00495589 /* Localizables.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizables.strings; sourceTree = "<group>"; };
+		7025A16F261CF3A800495589 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		704CACAC261CAA7000C55628 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		705018E4261C892300CA8937 /* Reign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		705018E7261C892300CA8937 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,7 +181,7 @@
 			children = (
 				7010E600261CCCCD00E86E02 /* Networking */,
 				7050190A261C8A9600CA8937 /* UI */,
-				7050190B261C8A9E00CA8937 /* Extensions */,
+				7050190B261C8A9E00CA8937 /* Extensions+Constants */,
 				7050190C261C8AAF00CA8937 /* Localizables */,
 				705018E7261C892300CA8937 /* AppDelegate.swift */,
 				705018F3261C892600CA8937 /* Assets.xcassets */,
@@ -197,7 +203,7 @@
 		70501905261C89E400CA8937 /* CoreDataModels */ = {
 			isa = PBXGroup;
 			children = (
-				7050191A261C98C000CA8937 /* News.xcdatamodeld */,
+				7050191A261C98C000CA8937 /* Reign.xcdatamodeld */,
 			);
 			path = CoreDataModels;
 			sourceTree = "<group>";
@@ -210,17 +216,20 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		7050190B261C8A9E00CA8937 /* Extensions */ = {
+		7050190B261C8A9E00CA8937 /* Extensions+Constants */ = {
 			isa = PBXGroup;
 			children = (
 				704CACAC261CAA7000C55628 /* Extensions.swift */,
+				7025A163261CDF3800495589 /* Constants.swift */,
+				7025A16F261CF3A800495589 /* Protocols.swift */,
 			);
-			path = Extensions;
+			path = "Extensions+Constants";
 			sourceTree = "<group>";
 		};
 		7050190C261C8AAF00CA8937 /* Localizables */ = {
 			isa = PBXGroup;
 			children = (
+				7025A167261CE10B00495589 /* Localizables.strings */,
 			);
 			path = Localizables;
 			sourceTree = "<group>";
@@ -412,6 +421,7 @@
 				705018F7261C892600CA8937 /* LaunchScreen.storyboard in Resources */,
 				705018F4261C892600CA8937 /* Assets.xcassets in Resources */,
 				7050192B261C9A1B00CA8937 /* ListView.xib in Resources */,
+				7025A168261CE10B00495589 /* Localizables.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,13 +503,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7050195B261CA70400CA8937 /* News.xcdatamodeld in Sources */,
+				7050195B261CA70400CA8937 /* Reign.xcdatamodeld in Sources */,
 				70501933261C9A4400CA8937 /* ListWorker.swift in Sources */,
 				70501913261C8D8000CA8937 /* ReachabilityManager.swift in Sources */,
 				7010E602261CCCE000E86E02 /* NetworkLayer.swift in Sources */,
 				70501907261C8A2400CA8937 /* CoreDataManager.swift in Sources */,
 				7050192A261C9A1B00CA8937 /* ListView.swift in Sources */,
 				70623052261CC4E900D51017 /* ListViewModel.swift in Sources */,
+				7025A164261CDF3800495589 /* Constants.swift in Sources */,
 				70501947261C9D1800CA8937 /* API.swift in Sources */,
 				7062304C261CBB7600D51017 /* ListItemCell.swift in Sources */,
 				70E5935A261CACC6002A2ACF /* News.swift in Sources */,
@@ -507,6 +518,7 @@
 				7050193C261C9A8600CA8937 /* ViewFactory.swift in Sources */,
 				7050192F261C9A2800CA8937 /* ListPresenter.swift in Sources */,
 				70501936261C9A5D00CA8937 /* ListInteractor.swift in Sources */,
+				7025A170261CF3A800495589 /* Protocols.swift in Sources */,
 				705018E8261C892300CA8937 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -646,7 +658,7 @@
 			};
 			name = Staging;
 		};
-		705018F9261C892600CA8937 /* Debug */ = {
+		705018F9261C892600CA8937 /* Development */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7010E608261CCD8500E86E02 /* Development.xcconfig */;
 			buildSettings = {
@@ -706,9 +718,9 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = Development;
 		};
-		705018FA261C892600CA8937 /* Release */ = {
+		705018FA261C892600CA8937 /* Production */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7010E60A261CCDA200E86E02 /* Production.xcconfig */;
 			buildSettings = {
@@ -762,9 +774,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Production;
 		};
-		705018FC261C892600CA8937 /* Debug */ = {
+		705018FC261C892600CA8937 /* Development */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7010E608261CCD8500E86E02 /* Development.xcconfig */;
 			buildSettings = {
@@ -784,9 +796,9 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Debug;
+			name = Development;
 		};
-		705018FD261C892600CA8937 /* Release */ = {
+		705018FD261C892600CA8937 /* Production */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7010E60A261CCDA200E86E02 /* Production.xcconfig */;
 			buildSettings = {
@@ -806,9 +818,9 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
-			name = Release;
+			name = Production;
 		};
-		70623061261CC8B500D51017 /* Debug */ = {
+		70623061261CC8B500D51017 /* Development */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7010E608261CCD8500E86E02 /* Development.xcconfig */;
 			buildSettings = {
@@ -827,9 +839,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reign.app/Reign";
 			};
-			name = Debug;
+			name = Development;
 		};
-		70623062261CC8B500D51017 /* Release */ = {
+		70623062261CC8B500D51017 /* Production */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7010E60A261CCDA200E86E02 /* Production.xcconfig */;
 			buildSettings = {
@@ -848,7 +860,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reign.app/Reign";
 			};
-			name = Release;
+			name = Production;
 		};
 /* End XCBuildConfiguration section */
 
@@ -856,44 +868,44 @@
 		705018DF261C892300CA8937 /* Build configuration list for PBXProject "Reign" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				705018F9261C892600CA8937 /* Debug */,
+				705018F9261C892600CA8937 /* Development */,
 				7010E631261CCE7500E86E02 /* Staging */,
-				705018FA261C892600CA8937 /* Release */,
+				705018FA261C892600CA8937 /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Production;
 		};
 		705018FB261C892600CA8937 /* Build configuration list for PBXNativeTarget "Reign" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				705018FC261C892600CA8937 /* Debug */,
+				705018FC261C892600CA8937 /* Development */,
 				7010E632261CCE7500E86E02 /* Staging */,
-				705018FD261C892600CA8937 /* Release */,
+				705018FD261C892600CA8937 /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Production;
 		};
 		70623063261CC8B500D51017 /* Build configuration list for PBXNativeTarget "ReignUnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				70623061261CC8B500D51017 /* Debug */,
+				70623061261CC8B500D51017 /* Development */,
 				7010E633261CCE7500E86E02 /* Staging */,
-				70623062261CC8B500D51017 /* Release */,
+				70623062261CC8B500D51017 /* Production */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Production;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7050191A261C98C000CA8937 /* News.xcdatamodeld */ = {
+		7050191A261C98C000CA8937 /* Reign.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				7050191B261C98C000CA8937 /* Reign.xcdatamodel */,
 				7050191C261C98C000CA8937 /* News.xcdatamodel */,
 			);
 			currentVersion = 7050191B261C98C000CA8937 /* Reign.xcdatamodel */;
-			path = News.xcdatamodeld;
+			path = Reign.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

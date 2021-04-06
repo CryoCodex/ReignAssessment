@@ -17,5 +17,22 @@ class ListInteractor {
         self.worker = worker
     }
     
+    func fetchDataToReachability() {
+        let isNetworkAvailable = ReachabilityManager.shared.isNetworkConnected()
+        
+        if isNetworkAvailable {
+            worker.getNetworkNewsList { [weak self] (result) in
+                if let newsHolder = try? result.get() {
+                    self?.presenter.didGetData(data: newsHolder.hits ?? [])
+                } else {
+                    self?.presenter.didNotGetData()
+                }
+            }
+        } else {
+            worker.getCoreDataNewsList { [weak self] (news) in
+                self?.presenter.didGetData(data: news)
+            }
+        }
+    }
     
 }

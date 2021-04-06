@@ -10,7 +10,7 @@ import Alamofire
 
 class NetworkLayer {
     
-    func fetchData<T: Codable>(baseClass: T.Type, path: String, method: HTTPMethod, parameters: [String: String], resultBlock: @escaping(Result<T, NSError>) -> Void){
+    func fetchData<T: Decodable>(baseClass: T.Type, path: String, method: HTTPMethod, parameters: [String: String], resultBlock: @escaping(Result<T, NSError>) -> Void){
         
         AF.request(path,
                    method: method,
@@ -38,9 +38,20 @@ class NetworkLayer {
                         return
                     }
                     
-                    guard let genObject = try? JSONDecoder().decode(T.self, from: serializedJSON) else {
-                        print("Failure decoding JSON Response")
-                        resultBlock(.failure(NSError()))
+                    var genObject: T
+                    
+                    do {
+                        let decoder = JSONDecoder()
+                        
+                        // Since we are using the same Core Data Model class we need to pass
+                        // the context to the decoder in order to comply with the initializer
+                        decoder.userInfo[CodingUserInfoKey.managedObjectContext] = CoreDataManager.shared.persistentContainer.viewContext
+                        genObject = try decoder.decode(T.self, from: serializedJSON)
+                    
+                    } catch {
+                        let error = error as NSError
+                        print(error)
+                        resultBlock(.failure(error))
                         return
                     }
                     

@@ -11,7 +11,7 @@ import CoreData
 typealias NewsKeys = News.CodingKeys
 
 class NewsHolder: Decodable {
-    var hits: [News]
+    var hits: [News]?
 }
 
 class News: NSManagedObject, Decodable {
