@@ -1,0 +1,13 @@
+//
+//  Development.xcconfig
+//  Reign
+//
+//  Created by Neptali Duque on 4/6/21.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_URL = https:/$()/hn.algolia.com/api/v1/
+
+#include "Pods/Target Support Files/Pods-Reign/Pods-Reign.debug.xcconfig"
