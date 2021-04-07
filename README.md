@@ -4,12 +4,12 @@ Reign iOS Developer Asssessment Test, I used the Clean (VIP) Software Architectu
 
 ## Requirements
 
-```bash
+```
 Make sure you have [Cocoapods](https://cocoapods.org) installed along with Xcode 12.
 ```
 
 ## Usage
-```bash
+```
 - download this repository.
 - run **pod install** to install dependencies.
 - open the **Reign.xcworkspace** file.
