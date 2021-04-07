@@ -11,4 +11,5 @@ Make sure you have [Cocoapods](https://cocoapods.org) installed along with Xcode
 - run **pod install** to install dependencies.
 - open the **Reign.xcworkspace** file.
 - select your development credentials under the project's **Signing & Capabilities** tab.
+- in case you are using a Personal account for the credentials dont forget to Trust the device in your iphone's settings **Settings -> General-> Device Managament -> Your profile name -> Trust**
 - run the project to your physical device or iOS simulator.
