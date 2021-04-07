@@ -29,10 +29,19 @@ class ListItemCell: UITableViewCell {
         newsMetadataLabel.textColor = UIColor.lightGray
     }
     
+    
+    // For Items In List
     func setupCell(with model: ListViewModel?) {
         guard let model = model else { return }
         newsTitleLabel.text = model.title
         newsMetadataLabel.text = model.metadata
         self.model = model
+    }
+    
+    // For Empty Mode List
+    func setupCell(with message: String) {
+        newsTitleLabel.text = message
+        newsTitleLabel.textAlignment = .center
+        newsMetadataLabel.isHidden = true
     }
 }

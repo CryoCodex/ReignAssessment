@@ -22,7 +22,7 @@ class ReachabilityManager {
     init() {
         monitor = NWPathMonitor()
         
-        let queue = DispatchQueue(label: "ReachabilityManager")
+        let queue = DispatchQueue(label: "ReachabilityManager", qos: .background)
         monitor?.start(queue: queue)
         
         networkUpdatesListener()

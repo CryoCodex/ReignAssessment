@@ -11,11 +11,17 @@ class ListWorker {
     
     let networkLayer = NetworkLayer()
     
+    private let queue = DispatchQueue(label: "ListWorker", qos: .userInitiated)
+    
     func getNetworkNewsList(resultToInteractor: @escaping(_ result: Result<NewsHolder, NSError>) -> Void) {
         let path = API.Home.getPath(for: .list)
-        
-        networkLayer.fetchData(baseClass: NewsHolder.self, path: path, method: .get, parameters: ["query": "mobile"]) { (result) in
-            resultToInteractor(result)
+        queue.async { [weak self] in
+            self?.networkLayer.fetchData(baseClass: NewsHolder.self, path: path, method: .get, parameters: ["query": "mobile"]) { (result) in
+                
+                DispatchQueue.main.async {
+                    resultToInteractor(result)
+                }
+            }
         }
     }
     

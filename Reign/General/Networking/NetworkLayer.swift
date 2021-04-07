@@ -10,7 +10,9 @@ import Alamofire
 
 class NetworkLayer {
     
-    func fetchData<T: Decodable>(baseClass: T.Type, path: String, method: HTTPMethod, parameters: [String: String], resultBlock: @escaping(Result<T, NSError>) -> Void){
+    func fetchData<T: Codable>(baseClass: T.Type, path: String, method: HTTPMethod, parameters: [String: String], resultBlock: @escaping(Result<T, NSError>) -> Void){
+        
+        let backgroundTaskID = UIApplication.shared.beginBackgroundTask(expirationHandler: nil)
         
         AF.request(path,
                    method: method,
@@ -55,7 +57,10 @@ class NetworkLayer {
                         return
                     }
                     
-                    resultBlock(.success(genObject))
+                    DispatchQueue.main.async {
+                        resultBlock(.success(genObject))
+                        UIApplication.shared.endBackgroundTask(backgroundTaskID)
+                    }
                     
                 default:
                     print("Invalid status code")

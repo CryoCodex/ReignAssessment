@@ -5,7 +5,7 @@
 //  Created by Neptali Duque on 4/6/21.
 //
 
-import Foundation
+import UIKit
 
 class ListInteractor {
     
@@ -23,11 +23,23 @@ class ListInteractor {
         if isNetworkAvailable {
             worker.getNetworkNewsList { [weak self] (result) in
                 if let newsHolder = try? result.get() {
-                    self?.presenter.didGetData(data: newsHolder.hits ?? [])
+                    let dataArray = newsHolder.hits ?? []
+                    let compacted = dataArray.filter({$0.story_title != nil || $0.title != nil})
+                    
+                    CATransaction.begin()
+                    CoreDataManager.shared.saveNews(newsArray: compacted)
+                    CATransaction.commit()
+                    
+                    CATransaction.setCompletionBlock { [weak self] in
+                        self?.worker.getCoreDataNewsList { [weak self] (news) in
+                            self?.presenter.didGetData(data: news)
+                        }
+                    }
                 } else {
                     self?.presenter.didNotGetData()
                 }
             }
+            
         } else {
             worker.getCoreDataNewsList { [weak self] (news) in
                 self?.presenter.didGetData(data: news)

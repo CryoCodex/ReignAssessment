@@ -31,3 +31,19 @@ enum Cells {
         }
     }
 }
+
+// MARK: - Date Formats
+struct DateFormats {
+    static let serverFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    static let standardFormat = "MM/dd/yyyy HH:mm:ss"
+}
+
+// MARK: - General Constants and User Defaults Keys
+
+struct Constants {
+    static let appPrefix = "reign-mobile-test"
+}
+struct UDKeys {
+    static let deletedNews = "\(Constants.appPrefix).deletedNews"
+}
+

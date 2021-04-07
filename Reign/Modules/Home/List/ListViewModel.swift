@@ -10,6 +10,6 @@ import Foundation
 struct ListViewModel {
     var title: String
     var metadata: String
-    var id: Int32
+    var id: String
     var url: String
 }

@@ -15,6 +15,7 @@ extension CodingUserInfoKey {
 // MARK: - Fatal Errors
 enum CodableErrors: Error {
     case missingManagedObjectContext
+    case missingEntityDescription
 }
 
 // MARK: - UITableView

@@ -12,6 +12,9 @@ class ListView: UIViewController {
     @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
+    var refreshControl: UIRefreshControl?
+    
+    var strings = Strings.ListView.self
     var interactor: ListInteractor?
     var listViewModel: [ListViewModel] = []
     var cells: [Cells] {
@@ -22,6 +25,8 @@ class ListView: UIViewController {
                 for _ in listViewModel {
                     builder.append(.listItem)
                 }
+            } else {
+                builder.append(.listItem)
             }
             
             return builder
@@ -46,13 +51,26 @@ class ListView: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(triggerPullToRefresh), for: .valueChanged)
+        refreshControl?.backgroundColor = .lightGray
+        refreshControl?.tintColor = .white
+        
+        tableView.refreshControl = refreshControl
+        
         tableView.registerCell(named: Cells.getIdentifierName(type: .listItem))
+        tableView.allowsMultipleSelectionDuringEditing = false
         tableView.alpha = 0
     }
     
     // MARK: Network Methods
     func fetchFromInteractor() {
         loader.startAnimating()
+        interactor?.fetchDataToReachability()
+    }
+    
+    @objc func triggerPullToRefresh() {
+        refreshControl?.beginRefreshing()
         interactor?.fetchDataToReachability()
     }
     
@@ -71,7 +89,13 @@ extension ListView: UITableViewDelegate, UITableViewDataSource {
         switch type {
         case .listItem:
             let cell = tableView.dequeueReusableCell(withIdentifier: id) as! ListItemCell
-            cell.setupCell(with: listViewModel[safe: index])
+            
+            if listViewModel.isEmpty {
+                cell.setupCell(with: strings.emptyState)
+            } else {
+                cell.setupCell(with: listViewModel[safe: index])
+            }
+            
             cell.selectionStyle = .none
             return cell
         }
@@ -83,6 +107,30 @@ extension ListView: UITableViewDelegate, UITableViewDataSource {
         if height == 0.0 { return UITableView.automaticDimension }
         return height
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: strings.tableRowDelete) { [weak self] (action, view, success) in
+            guard let self = self else { return }
+            self.listViewModel.remove(at: indexPath.row)
+            
+            if !(self.listViewModel.isEmpty) {
+                tableView.deleteRows(at: [indexPath], with: .right)
+            } else {
+                tableView.reloadRows(at: [indexPath], with: .right)
+            }
+
+            success(true)
+        }
+        
+        deleteAction.backgroundColor = .red
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    
 }
 
 extension ListView: BaseViewModelProtocol {
@@ -90,6 +138,7 @@ extension ListView: BaseViewModelProtocol {
     
     func receiveViewModel(viewModel: [ListViewModel]) {
         loader.stopAnimating()
+        refreshControl?.endRefreshing()
         
         listViewModel = viewModel
         

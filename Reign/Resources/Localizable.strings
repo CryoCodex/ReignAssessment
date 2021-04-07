@@ -1,0 +1,11 @@
+/* 
+  Localizables.strings
+  Reign
+
+  Created by Neptali Duque on 4/6/21.
+  
+*/
+
+// MARK: - ListView
+"list_view.action.delete" = "Delete";
+"list_view.empty_state" = "Oops! There are no news, please pull to refresh!";
