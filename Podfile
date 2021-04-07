@@ -7,6 +7,7 @@ target 'Reign' do
   
   # Pods for Reign
   pod 'Alamofire', '~> 5.2'
+  pod 'lottie-ios'
 
   target 'ReignUnitTests' do
     inherit! :search_paths

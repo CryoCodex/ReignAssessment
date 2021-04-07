@@ -24,7 +24,12 @@ class ListInteractor {
             worker.getNetworkNewsList { [weak self] (result) in
                 if let newsHolder = try? result.get() {
                     let dataArray = newsHolder.hits ?? []
-                    let compacted = dataArray.filter({$0.story_title != nil || $0.title != nil})
+                    var compacted = dataArray.filter({
+                            ($0.story_title != nil || $0.title != nil) &&
+                            ($0.story_url != nil || $0.url != nil)
+                    })
+                    
+                    self?.filterFromDeletedIds(compacted: &compacted)
                     
                     CATransaction.begin()
                     CoreDataManager.shared.saveNews(newsArray: compacted)
@@ -44,6 +49,31 @@ class ListInteractor {
             worker.getCoreDataNewsList { [weak self] (news) in
                 self?.presenter.didGetData(data: news)
             }
+        }
+    }
+    
+    func filterFromDeletedIds(compacted: inout [News]) {
+        if let deletedNews = UserDefaults.standard.string(forKey: UDKeys.deletedNews) {
+            let ids = deletedNews.split(separator: ",").map(String.init)
+            for id in ids {
+                if let index = compacted.firstIndex(where: {$0.object_id == id}) {
+                    compacted.remove(at: index)
+                }
+            }
+        }
+    }
+    
+    func deleteNews(listViewModel: inout [ListViewModel], indexPath: IndexPath) {
+        let removed = listViewModel.remove(at: indexPath.row)
+        CoreDataManager.shared.deleteNews(listViewModel: removed)
+        
+        if var deletedNews = UserDefaults.standard.string(forKey: UDKeys.deletedNews) {
+            deletedNews += ",\(removed.id)"
+            UserDefaults.standard.setValue(deletedNews, forKey: UDKeys.deletedNews)
+            UserDefaults.standard.synchronize()
+        } else {
+            UserDefaults.standard.setValue(removed.id, forKey: UDKeys.deletedNews)
+            UserDefaults.standard.synchronize()
         }
     }
     

@@ -9,8 +9,15 @@ import UIKit
 
 class ListView: UIViewController {
     
-    @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if #available(iOS 13, *) {
+            return .darkContent
+        } else {
+            return .default
+        }
+    }
     
     var refreshControl: UIRefreshControl?
     
@@ -42,7 +49,6 @@ class ListView: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
@@ -53,8 +59,8 @@ class ListView: UIViewController {
         
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(triggerPullToRefresh), for: .valueChanged)
-        refreshControl?.backgroundColor = .lightGray
-        refreshControl?.tintColor = .white
+        refreshControl?.backgroundColor = .clear
+        refreshControl?.tintColor = .clear
         
         tableView.refreshControl = refreshControl
         
@@ -65,12 +71,12 @@ class ListView: UIViewController {
     
     // MARK: Network Methods
     func fetchFromInteractor() {
-        loader.startAnimating()
+        view.loaderState = .loading
         interactor?.fetchDataToReachability()
     }
     
     @objc func triggerPullToRefresh() {
-        refreshControl?.beginRefreshing()
+        refreshControl?.refresherStatus = .loading
         interactor?.fetchDataToReachability()
     }
     
@@ -111,7 +117,8 @@ extension ListView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .normal, title: strings.tableRowDelete) { [weak self] (action, view, success) in
             guard let self = self else { return }
-            self.listViewModel.remove(at: indexPath.row)
+            
+            self.interactor?.deleteNews(listViewModel: &self.listViewModel, indexPath: indexPath)
             
             if !(self.listViewModel.isEmpty) {
                 tableView.deleteRows(at: [indexPath], with: .right)
@@ -127,6 +134,16 @@ extension ListView: UITableViewDelegate, UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = indexPath.row
+        
+        if let listViewModel = listViewModel[safe: index] {
+            let vc = ViewFactory.getViewForAppView(view: .detail) as! DetailView
+            vc.stringUrl = listViewModel.url
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
     }
@@ -137,8 +154,8 @@ extension ListView: BaseViewModelProtocol {
     typealias T = ListViewModel
     
     func receiveViewModel(viewModel: [ListViewModel]) {
-        loader.stopAnimating()
-        refreshControl?.endRefreshing()
+        view.loaderState = .loaded
+        refreshControl?.refresherStatus = .loaded
         
         listViewModel = viewModel
         

@@ -9,3 +9,10 @@
 // MARK: - ListView
 "list_view.action.delete" = "Delete";
 "list_view.empty_state" = "Oops! There are no news, please pull to refresh!";
+
+// MARK: - DetailView
+"detail_view.loading_from_cache" = "Loading from cache";
+
+// MARK: - Reachability
+"reachability.network_unavailable" = "Network unavailable!";
+"reachability.network_available" = "Network available!";

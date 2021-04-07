@@ -14,7 +14,7 @@ class NewsHolder: Codable {
     var hits: [News]?
 }
 
-class News: NSObject, Codable {
+class News: Codable {
     
     var author: String?
     var created_at: String?
@@ -35,9 +35,7 @@ class News: NSObject, Codable {
         case url = "url"
     }
     
-    override init() {
-        super.init()
-    }
+    init() {}
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

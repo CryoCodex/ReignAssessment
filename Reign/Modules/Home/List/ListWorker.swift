@@ -15,6 +15,7 @@ class ListWorker {
     
     func getNetworkNewsList(resultToInteractor: @escaping(_ result: Result<NewsHolder, NSError>) -> Void) {
         let path = API.Home.getPath(for: .list)
+        
         queue.async { [weak self] in
             self?.networkLayer.fetchData(baseClass: NewsHolder.self, path: path, method: .get, parameters: ["query": "mobile"]) { (result) in
                 

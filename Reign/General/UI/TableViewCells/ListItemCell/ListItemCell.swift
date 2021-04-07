@@ -11,6 +11,8 @@ class ListItemCell: UITableViewCell {
     
     @IBOutlet weak var newsTitleLabel: UILabel!
     @IBOutlet weak var newsMetadataLabel: UILabel!
+    
+    var model: ListViewModel?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +21,10 @@ class ListItemCell: UITableViewCell {
         setupUI()
     }
     
-    var model: ListViewModel?
+    override func prepareForReuse() {
+        newsTitleLabel.textAlignment = .left
+        newsMetadataLabel.isHidden = false
+    }
     
     private func setupUI() {
         newsTitleLabel.font = UIFont.systemFont(ofSize: 18)
@@ -28,7 +33,6 @@ class ListItemCell: UITableViewCell {
         newsTitleLabel.textColor = UIColor.black
         newsMetadataLabel.textColor = UIColor.lightGray
     }
-    
     
     // For Items In List
     func setupCell(with model: ListViewModel?) {

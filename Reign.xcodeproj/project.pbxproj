@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		700122F1261D67E700362622 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700122F0261D67E700362622 /* BaseNavigationController.swift */; };
 		7010E602261CCCE000E86E02 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7010E601261CCCE000E86E02 /* NetworkLayer.swift */; };
 		7025A164261CDF3800495589 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025A163261CDF3800495589 /* Constants.swift */; };
 		7025A170261CF3A800495589 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7025A16F261CF3A800495589 /* Protocols.swift */; };
+		704C803D261D779D0003EC82 /* UIView+Lottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704C803C261D779D0003EC82 /* UIView+Lottie.swift */; };
+		704C8043261D77D30003EC82 /* UIRefresherControl+Lottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704C8042261D77D30003EC82 /* UIRefresherControl+Lottie.swift */; };
+		704C8047261D78F60003EC82 /* Loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 704C8046261D78F60003EC82 /* Loader.json */; };
+		704C804D261D7B930003EC82 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704C804C261D7B930003EC82 /* DetailView.swift */; };
+		704C8051261D897E0003EC82 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704C8050261D897E0003EC82 /* WebKit.framework */; };
+		704C805D261DA8C50003EC82 /* DetailViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704C805C261DA8C50003EC82 /* DetailViewTests.swift */; };
 		704CACAD261CAA7000C55628 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704CACAC261CAA7000C55628 /* Extensions.swift */; };
 		705018E8261C892300CA8937 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705018E7261C892300CA8937 /* AppDelegate.swift */; };
 		705018F4261C892600CA8937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 705018F3261C892600CA8937 /* Assets.xcassets */; };
@@ -29,6 +36,8 @@
 		70623052261CC4E900D51017 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70623051261CC4E900D51017 /* ListViewModel.swift */; };
 		70623067261CCA0900D51017 /* ListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70623066261CCA0900D51017 /* ListViewTests.swift */; };
 		709C28B1261D57E600B11D3E /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709C28B0261D57E600B11D3E /* Toast.swift */; };
+		70A47BD3261DE7C200F92A21 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70A47BD2261DE7C200F92A21 /* CoreTelephony.framework */; };
+		70A47BD7261DEA4500F92A21 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A47BD6261DEA4500F92A21 /* Reachability.swift */; };
 		70B78B7A261D1B67005BDEB7 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B78B79261D1B67005BDEB7 /* Strings.swift */; };
 		70B78B85261D1F68005BDEB7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 70B78B84261D1F68005BDEB7 /* Localizable.strings */; };
 		70E5935A261CACC6002A2ACF /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E59359261CACC6002A2ACF /* News.swift */; };
@@ -51,12 +60,19 @@
 		4D7992107F86E4A6797EC74C /* Pods-ReignUnitTests.development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReignUnitTests.development.xcconfig"; path = "Target Support Files/Pods-ReignUnitTests/Pods-ReignUnitTests.development.xcconfig"; sourceTree = "<group>"; };
 		5213661131B53D4241971907 /* Pods-Reign.production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reign.production.xcconfig"; path = "Target Support Files/Pods-Reign/Pods-Reign.production.xcconfig"; sourceTree = "<group>"; };
 		5512BFD4E85B7244AF07CC3C /* Pods-ReignUnitTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReignUnitTests.staging.xcconfig"; path = "Target Support Files/Pods-ReignUnitTests/Pods-ReignUnitTests.staging.xcconfig"; sourceTree = "<group>"; };
+		700122F0261D67E700362622 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		7010E601261CCCE000E86E02 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		7010E608261CCD8500E86E02 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		7010E609261CCD9400E86E02 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		7010E60A261CCDA200E86E02 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		7025A163261CDF3800495589 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7025A16F261CF3A800495589 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		704C803C261D779D0003EC82 /* UIView+Lottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Lottie.swift"; sourceTree = "<group>"; };
+		704C8042261D77D30003EC82 /* UIRefresherControl+Lottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefresherControl+Lottie.swift"; sourceTree = "<group>"; };
+		704C8046261D78F60003EC82 /* Loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Loader.json; sourceTree = "<group>"; };
+		704C804C261D7B930003EC82 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		704C8050261D897E0003EC82 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		704C805C261DA8C50003EC82 /* DetailViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTests.swift; sourceTree = "<group>"; };
 		704CACAC261CAA7000C55628 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		705018E4261C892300CA8937 /* Reign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		705018E7261C892300CA8937 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +97,8 @@
 		7062305E261CC8B500D51017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70623066261CCA0900D51017 /* ListViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTests.swift; sourceTree = "<group>"; };
 		709C28B0261D57E600B11D3E /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		70A47BD2261DE7C200F92A21 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		70A47BD6261DEA4500F92A21 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		70B78B79261D1B67005BDEB7 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		70B78B84261D1F68005BDEB7 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		70E59359261CACC6002A2ACF /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -95,6 +113,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				704C8051261D897E0003EC82 /* WebKit.framework in Frameworks */,
+				70A47BD3261DE7C200F92A21 /* CoreTelephony.framework in Frameworks */,
 				8E3F777845C4C31BC0AD7796 /* Pods_Reign.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,10 +133,20 @@
 		3A5AA1D07569D247E163DEB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				70A47BD2261DE7C200F92A21 /* CoreTelephony.framework */,
+				704C8050261D897E0003EC82 /* WebKit.framework */,
 				D9CD65024EBD4D52E4407CAA /* Pods_Reign.framework */,
 				C80DF5CFB4F4E5CC05441B33 /* Pods_ReignUnitTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		700122F6261D67ED00362622 /* BaseClasses */ = {
+			isa = PBXGroup;
+			children = (
+				700122F0261D67E700362622 /* BaseNavigationController.swift */,
+			);
+			path = BaseClasses;
 			sourceTree = "<group>";
 		};
 		7010E600261CCCCD00E86E02 /* Networking */ = {
@@ -164,7 +194,7 @@
 				7010E607261CCD6800E86E02 /* Configs */,
 				7050194A261CA0F500CA8937 /* Models */,
 				70501905261C89E400CA8937 /* CoreDataModels */,
-				70501904261C89B900CA8937 /* Helpers */,
+				70501904261C89B900CA8937 /* Managers */,
 				70501902261C89A500CA8937 /* Modules */,
 				70501903261C89AC00CA8937 /* General */,
 				70B78B88261D20AC005BDEB7 /* Resources */,
@@ -184,10 +214,10 @@
 		70501903261C89AC00CA8937 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				700122F6261D67ED00362622 /* BaseClasses */,
 				7010E600261CCCCD00E86E02 /* Networking */,
 				7050190A261C8A9600CA8937 /* UI */,
 				7050190B261C8A9E00CA8937 /* Extensions+Constants */,
-				7050190C261C8AAF00CA8937 /* Localizables */,
 				705018E7261C892300CA8937 /* AppDelegate.swift */,
 				705018F5261C892600CA8937 /* LaunchScreen.storyboard */,
 				7050193B261C9A8600CA8937 /* ViewFactory.swift */,
@@ -195,13 +225,13 @@
 			path = General;
 			sourceTree = "<group>";
 		};
-		70501904261C89B900CA8937 /* Helpers */ = {
+		70501904261C89B900CA8937 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				70501906261C8A2400CA8937 /* CoreDataManager.swift */,
 				70501912261C8D8000CA8937 /* ReachabilityManager.swift */,
 			);
-			path = Helpers;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		70501905261C89E400CA8937 /* CoreDataModels */ = {
@@ -227,15 +257,10 @@
 				7025A163261CDF3800495589 /* Constants.swift */,
 				7025A16F261CF3A800495589 /* Protocols.swift */,
 				70B78B79261D1B67005BDEB7 /* Strings.swift */,
+				704C803C261D779D0003EC82 /* UIView+Lottie.swift */,
+				704C8042261D77D30003EC82 /* UIRefresherControl+Lottie.swift */,
 			);
 			path = "Extensions+Constants";
-			sourceTree = "<group>";
-		};
-		7050190C261C8AAF00CA8937 /* Localizables */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Localizables;
 			sourceTree = "<group>";
 		};
 		7050190D261C8B0000CA8937 /* Home */ = {
@@ -250,7 +275,6 @@
 		7050190E261C8BFF00CA8937 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				7050191F261C99A900CA8937 /* ListTests */,
 				70501928261C9A1B00CA8937 /* ListView.swift */,
 				70501929261C9A1B00CA8937 /* ListView.xib */,
 				7050192E261C9A2800CA8937 /* ListPresenter.swift */,
@@ -264,23 +288,9 @@
 		70501910261C8C1300CA8937 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				70501920261C99C100CA8937 /* DetailTests */,
+				704C804C261D7B930003EC82 /* DetailView.swift */,
 			);
 			path = Detail;
-			sourceTree = "<group>";
-		};
-		7050191F261C99A900CA8937 /* ListTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ListTests;
-			sourceTree = "<group>";
-		};
-		70501920261C99C100CA8937 /* DetailTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DetailTests;
 			sourceTree = "<group>";
 		};
 		7050194A261CA0F500CA8937 /* Models */ = {
@@ -320,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				70623066261CCA0900D51017 /* ListViewTests.swift */,
+				704C805C261DA8C50003EC82 /* DetailViewTests.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -336,9 +347,11 @@
 		70B78B88261D20AC005BDEB7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				704C8046261D78F60003EC82 /* Loader.json */,
 				70B78B84261D1F68005BDEB7 /* Localizable.strings */,
 				705018F3261C892600CA8937 /* Assets.xcassets */,
 				709C28B0261D57E600B11D3E /* Toast.swift */,
+				70A47BD6261DEA4500F92A21 /* Reachability.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -439,6 +452,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				704C8047261D78F60003EC82 /* Loader.json in Resources */,
 				7062304D261CBB7600D51017 /* ListItemCell.xib in Resources */,
 				705018F7261C892600CA8937 /* LaunchScreen.storyboard in Resources */,
 				705018F4261C892600CA8937 /* Assets.xcassets in Resources */,
@@ -530,16 +544,21 @@
 				70501913261C8D8000CA8937 /* ReachabilityManager.swift in Sources */,
 				709C28B1261D57E600B11D3E /* Toast.swift in Sources */,
 				7010E602261CCCE000E86E02 /* NetworkLayer.swift in Sources */,
+				700122F1261D67E700362622 /* BaseNavigationController.swift in Sources */,
 				70501907261C8A2400CA8937 /* CoreDataManager.swift in Sources */,
 				7050192A261C9A1B00CA8937 /* ListView.swift in Sources */,
 				70623052261CC4E900D51017 /* ListViewModel.swift in Sources */,
 				7025A164261CDF3800495589 /* Constants.swift in Sources */,
+				704C803D261D779D0003EC82 /* UIView+Lottie.swift in Sources */,
 				70501947261C9D1800CA8937 /* API.swift in Sources */,
 				7062304C261CBB7600D51017 /* ListItemCell.swift in Sources */,
 				70B78B7A261D1B67005BDEB7 /* Strings.swift in Sources */,
+				70A47BD7261DEA4500F92A21 /* Reachability.swift in Sources */,
 				70E5935A261CACC6002A2ACF /* News.swift in Sources */,
 				704CACAD261CAA7000C55628 /* Extensions.swift in Sources */,
 				7050193C261C9A8600CA8937 /* ViewFactory.swift in Sources */,
+				704C804D261D7B930003EC82 /* DetailView.swift in Sources */,
+				704C8043261D77D30003EC82 /* UIRefresherControl+Lottie.swift in Sources */,
 				7050192F261C9A2800CA8937 /* ListPresenter.swift in Sources */,
 				70501936261C9A5D00CA8937 /* ListInteractor.swift in Sources */,
 				7025A170261CF3A800495589 /* Protocols.swift in Sources */,
@@ -552,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70623067261CCA0900D51017 /* ListViewTests.swift in Sources */,
+				704C805D261DA8C50003EC82 /* DetailViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,7 +687,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CZ72376GZR;
+				DEVELOPMENT_TEAM = 4JQN4TVW55;
 				INFOPLIST_FILE = ReignUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -850,7 +870,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CZ72376GZR;
+				DEVELOPMENT_TEAM = 4JQN4TVW55;
 				INFOPLIST_FILE = ReignUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -871,7 +891,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CZ72376GZR;
+				DEVELOPMENT_TEAM = 4JQN4TVW55;
 				INFOPLIST_FILE = ReignUnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

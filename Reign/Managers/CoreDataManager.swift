@@ -34,32 +34,27 @@ class CoreDataManager {
 
     // MARK: - Core Data News Operations
     func saveNews (newsArray: [News]) {
-        
         let context = persistentContainer.viewContext
         
-        context.perform {
-            for news in newsArray {
-                let newsEntity = NSEntityDescription.insertNewObject(forEntityName: Entities.managedNews.rawValue, into: context)
-                newsEntity.setValue(news.author, forKey: NewsKeys.author.rawValue)
-                newsEntity.setValue(news.created_at, forKey: NewsKeys.created_at.rawValue)
-                newsEntity.setValue(news.object_id, forKey: NewsKeys.object_id_core_data.rawValue)
-                newsEntity.setValue(news.story_url, forKey: NewsKeys.story_url.rawValue)
-                newsEntity.setValue(news.story_title, forKey: NewsKeys.story_title.rawValue)
-                newsEntity.setValue(news.title, forKey: NewsKeys.title.rawValue)
-                newsEntity.setValue(news.url, forKey: NewsKeys.url.rawValue)
-            }
-            
-            if context.hasChanges {
-                do {
-                    try context.save()
-                } catch {
-                    let nserror = error as NSError
-                    print("Unresolved error \(nserror), \(nserror.userInfo)")
-                }
-            }
+        for news in newsArray {
+            let newsEntity = NSEntityDescription.insertNewObject(forEntityName: Entities.managedNews.rawValue, into: context)
+            newsEntity.setValue(news.author, forKey: NewsKeys.author.rawValue)
+            newsEntity.setValue(news.created_at, forKey: NewsKeys.created_at.rawValue)
+            newsEntity.setValue(news.object_id, forKey: NewsKeys.object_id_core_data.rawValue)
+            newsEntity.setValue(news.story_url, forKey: NewsKeys.story_url.rawValue)
+            newsEntity.setValue(news.story_title, forKey: NewsKeys.story_title.rawValue)
+            newsEntity.setValue(news.title, forKey: NewsKeys.title.rawValue)
+            newsEntity.setValue(news.url, forKey: NewsKeys.url.rawValue)
         }
         
-        
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                print("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
     }
     
     func getNews() -> [News] {
@@ -88,6 +83,25 @@ class CoreDataManager {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
             return newsArray
+        }
+    }
+    
+    func deleteNews(listViewModel: ListViewModel) {
+        let context = persistentContainer.viewContext
+        let objectId = listViewModel.id
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: Entities.managedNews.rawValue)
+        fetchRequest.predicate = NSPredicate(format: "object_id = %@", argumentArray: [objectId])
+        
+        if let result = try? context.fetch(fetchRequest) {
+            for object in result {
+                context.delete(object)
+            }
+        }
+        
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print("Could not delete. \(error), \(error.userInfo)")
         }
     }
 

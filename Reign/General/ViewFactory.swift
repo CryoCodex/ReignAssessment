@@ -10,6 +10,7 @@ import UIKit
 class ViewFactory {
     enum AppView {
         case list
+        case detail
     }
     
     class func getViewForAppView(view: AppView) -> UIViewController {
@@ -21,8 +22,16 @@ class ViewFactory {
             let interactor = ListInteractor(presenter: presenter, worker: worker)
             controller.interactor = interactor
             
-            let navigationController = UINavigationController(rootViewController: controller)
+            let navigationController = BaseNavigationController(rootViewController: controller)
+            navigationController.navigationBar.tintColor = UIColor.black
+            navigationController.navigationBar.barTintColor = UIColor.white
             return navigationController
+            
+        case .detail:
+            let controller = DetailView(nibName: nil, bundle: nil)
+            return controller
         }
+        
+        
     }
 }
