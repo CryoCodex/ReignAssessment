@@ -13,3 +13,4 @@ Make sure you have [Cocoapods](https://cocoapods.org) installed along with Xcode
 - select your development credentials under the project's **Signing & Capabilities** tab.
 - in case you are using a Personal account not enrolled in the Apple Developer Program for the credentials dont forget to Trust the device in your iphone's settings **Settings -> General-> Device Managament -> Your profile name -> Trust**
 - run the project to your physical device or iOS simulator.
+
